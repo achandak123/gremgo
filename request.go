@@ -3,8 +3,8 @@ package gremgo
 import (
 	"encoding/json"
 
-	"github.com/satori/go.uuid"
 	"encoding/base64"
+	"github.com/satori/go.uuid"
 )
 
 /////
@@ -30,11 +30,8 @@ type request struct {
 // prepareRequest packages a query and binding into the format that Gremlin Server accepts
 func prepareRequest(query string, bindings, rebindings map[string]string) (req request, id string, err error) {
 	var uuID uuid.UUID
-        uuID, err = uuid.NewV4()
-        if err != nil {
-                return
-        }
-        id = uuID.String()
+	uuID = uuid.NewV4()
+	id = uuID.String()
 
 	req.RequestId = id
 	req.Op = "eval"
