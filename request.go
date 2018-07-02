@@ -28,7 +28,7 @@ type request struct {
 /////
 
 // prepareRequest packages a query and binding into the format that Gremlin Server accepts
-func prepareRequest(query string, bindings, rebindings map[string]string) (req request, id string, err error) {
+func prepareRequest(query string, bindings, rebindings map[string]interface{}) (req request, id string, err error) {
 	var uuID uuid.UUID
 	uuID = uuid.NewV4()
 	id = uuID.String()
